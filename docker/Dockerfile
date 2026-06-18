@@ -259,7 +259,7 @@ ENV TDK_WS=/home/${USERNAME}/tdk_robot_ws
 RUN mkdir -p ${TDK_WS} \
     && chown -R ${USERNAME}:${USERNAME} ${TDK_WS}
 
-WORKDIR ${TDK_WS}
+WORKDIR /workspaces
 
 # ------------------------------------------------------------
 # 17. Bash environment
