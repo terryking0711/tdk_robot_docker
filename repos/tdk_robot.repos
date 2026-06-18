@@ -1,0 +1,11 @@
+repositories:
+  tdk_slam_ws:
+    type: git
+    url: https://github.com/terryking0711/tdk_slam_ws.git
+    version: sim
+
+  robot_fsm_v2_ws:
+    type: git
+    url: https://github.com/terryking0711/robot_fsm_v2_ws.git
+    version: main
+    

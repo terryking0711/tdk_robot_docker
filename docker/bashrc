@@ -1,0 +1,20 @@
+source /opt/ros/humble/setup.bash
+
+export ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-30}
+export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}
+export QT_X11_NO_MITSHM=1
+
+if [ -f /workspaces/tdk_slam_ws/install/setup.bash ]; then
+  source /workspaces/tdk_slam_ws/install/setup.bash
+fi
+
+if [ -f /workspaces/robot_fsm_v2_ws/install/setup.bash ]; then
+  source /workspaces/robot_fsm_v2_ws/install/setup.bash
+fi
+
+alias cb='colcon build --symlink-install'
+alias cs='cd /workspaces/tdk_slam_ws'
+alias cf='cd /workspaces/robot_fsm_v2_ws'
+alias sros='source /opt/ros/humble/setup.bash'
+alias st='source /workspaces/tdk_slam_ws/install/setup.bash'
+alias sf='source /workspaces/robot_fsm_v2_ws/install/setup.bash'
