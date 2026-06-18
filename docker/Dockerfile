@@ -185,6 +185,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # ------------------------------------------------------------
+# 9.5 ira_laser_tools (no apt package, build from source)
+# ------------------------------------------------------------
+RUN mkdir -p /opt/ira_laser_tools_ws/src \
+    && cd /opt/ira_laser_tools_ws/src \
+    && git clone -b humble https://github.com/nakai-omer/ira_laser_tools.git \
+    && cd /opt/ira_laser_tools_ws \
+    && source /opt/ros/humble/setup.bash \
+    && colcon build --symlink-install \
+    && rm -rf /opt/ira_laser_tools_ws/build /opt/ira_laser_tools_ws/log
+
+# ------------------------------------------------------------
 # 10. Teleop / debugging / web visualization
 # ------------------------------------------------------------
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -247,6 +258,7 @@ ARG USER_UID=1000
 ARG USER_GID=1000
 
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
+    && getent group render || groupadd render \
     && useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} -s /bin/bash \
     && usermod -aG sudo,dialout,plugdev,video,render ${USERNAME} \
     && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME} \
@@ -268,6 +280,7 @@ RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/${USERNAME}/.bashrc
     && echo "export ROS_DOMAIN_ID=${ROS_DOMAIN_ID}" >> /home/${USERNAME}/.bashrc \
     && echo "export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION}" >> /home/${USERNAME}/.bashrc \
     && echo "if [ -f ${TDK_WS}/install/setup.bash ]; then source ${TDK_WS}/install/setup.bash; fi" >> /home/${USERNAME}/.bashrc \
+    && echo "source /opt/ira_laser_tools_ws/install/setup.bash" >> /home/${USERNAME}/.bashrc \
     && chown ${USERNAME}:${USERNAME} /home/${USERNAME}/.bashrc
 
 # Optional project bashrc, if you maintain docker/bashrc
