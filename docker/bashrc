@@ -18,3 +18,7 @@ alias cf='cd /workspaces/robot_fsm_v2_ws'
 alias sros='source /opt/ros/humble/setup.bash'
 alias st='source /workspaces/tdk_slam_ws/install/setup.bash'
 alias sf='source /workspaces/robot_fsm_v2_ws/install/setup.bash'
+
+# 強制彩色 PS1
+export TERM=xterm-256color
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

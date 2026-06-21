@@ -22,4 +22,6 @@ if [ -f /workspaces/robot_fsm_v2_ws/install/setup.bash ]; then
   source /workspaces/robot_fsm_v2_ws/install/setup.bash
 fi
 
+export BASH_ENV=/home/tdk/.bashrc
+
 exec "$@"
