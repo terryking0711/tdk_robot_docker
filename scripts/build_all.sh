@@ -3,7 +3,7 @@ set -e
 
 source /opt/ros/humble/setup.bash
 
-export ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-30}
+export ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
 export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}
 
 echo "========== Build tdk_slam_ws =========="

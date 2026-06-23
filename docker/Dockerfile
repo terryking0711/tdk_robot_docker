@@ -7,7 +7,7 @@ ENV ROS_DISTRO=humble
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-ENV ROS_DOMAIN_ID=30
+ENV ROS_DOMAIN_ID=0
 
 SHELL ["/bin/bash", "-c"]
 
