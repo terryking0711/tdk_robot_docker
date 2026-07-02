@@ -12,7 +12,7 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
-      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-30}
       - RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}
       - LIBGL_ALWAYS_SOFTWARE=${LIBGL_ALWAYS_SOFTWARE:-0}
 
@@ -21,6 +21,8 @@ services:
       - ./workspaces:/workspaces:rw
       - /dev:/dev
       - /run/udev:/run/udev:ro
+      # --- 補上這行 ---
+      - ~/.Xauthority:/root/.Xauthority:rw
 
     devices:
       - /dev/dri:/dev/dri

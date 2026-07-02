@@ -6,7 +6,7 @@ source /opt/ros/humble/setup.bash
 source /workspaces/tdk_slam_ws/install/setup.bash
 source /workspaces/robot_fsm_v2_ws/install/setup.bash
 
-export ROS_DOMAIN_ID=\${ROS_DOMAIN_ID:-0}
+export ROS_DOMAIN_ID=\${ROS_DOMAIN_ID:-30}
 export RMW_IMPLEMENTATION=\${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}
 
 echo 'Container ready for real robot.'
